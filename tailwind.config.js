@@ -7,9 +7,14 @@ export default {
   theme: {
     extend: {
       colors:{
+        lightmode:{
+          50:"#FAF6F5",
+          100:"#EFEFF5"
+        },
         dark:{
           100:"#262730",
-          200:"#16151C",
+          200:'#14131a',
+          300:"#16151C",
         },
         light:"#EFEFF5",
         primary:{
@@ -18,7 +23,7 @@ export default {
         },
       },
       fontFamily:{
-        rajdhani:['Rajdhani','sans serif'],
+        saira:['Saira Condensed','sans serif'],
         poppins:['poppins','sans serif']
       }
     },

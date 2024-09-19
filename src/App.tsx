@@ -5,13 +5,20 @@ import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import Login from './Pages/Auth/Login.tsx';
 import Register from './Pages/Auth/Register.tsx';
 import Main from './Pages/Main/Main.tsx';
+import Home from './Pages/Home/Home.tsx';
 
 function App() {
   
   const router = createBrowserRouter([
      {
       path:'/',
-      element:<Main />
+      element:<Main />,
+      children:[
+        {
+          path:'/',
+          element:<Home/>
+        }
+      ]
      },
      {
       path:'/login',

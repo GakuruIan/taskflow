@@ -17,7 +17,7 @@ const Register = () => {
 
 
   return (
-    <div className="  dark:bg-dark-200 bg-white">
+    <div className="  dark:bg-dark-300 bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
         <div className="">
           <div className="p-4">
