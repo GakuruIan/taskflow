@@ -1,51 +1,28 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 
 // icons
-import { IoTimeOutline, IoFlagSharp, IoTrashBinOutline } from "react-icons/io5";
+import { IoTimeOutline, IoFlagSharp} from "react-icons/io5";
 import { GoPlus } from "react-icons/go";
+
 
 // image
 import pic from "../../assets/astronaut-art.jpg";
 
-interface ColumnProps {
-  text: String;
-  column: String;
-  icon?: String;
-  cards?: [];
-  setCards?: React.Dispatch<React.SetStateAction<[]>>;
-}
+// components
+import BurnBarrel from "../../Components/BurnBarrel/BurnBarrel.tsx";
+import Column from "../../Components/Column/Column.tsx";
 
-const Column: React.FC<ColumnProps> = ({ text, column, cards, setCards }) => {
-  return (
-    <div className="w-56 shrink-0" >
-      {/* column header */}
-      <div className="flex items-center justify-between px-4 py-3 rounded-md bg-white dark:bg-dark-200">
-        <div className="flex items-center gap-x-2">
-          <h6 className="text-base font-saira">{text}</h6>
-          <p className="text-sm">1</p>
-        </div>
-        <span className="h-6 w-6 flex items-center justify-center rounded-full bg-lightmode-100 dark:bg-dark-100">
-          <GoPlus />
-        </span>
-      </div>
-
-      <div className="h-full  mt-4" draggable>
-        <div className="bg-white dark:bg-dark-200 rounded-md py-4 px-2">
-          <div className="flex flex-col gap-y-2">
-            <h6 className="text-sm">Task title</h6>
-            <p className="text-sm text-gray-500">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Sapiente, fugiat.
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  );
-};
+// dummy data
+import { Cards } from "../../utils/data.ts";
 
 const Project = () => {
+
+   const [cards,setCards] = useState(Cards);
+
+  //  useEffect(() => {
+  //    setCards(Cards)
+  //  }, [cards]);
+
   return (
     <div>
       <div className="pb-4 ">
@@ -114,12 +91,13 @@ const Project = () => {
           {/* kaban */}
           <div className=" mt-4 py-4 ">
             <div className=" w-full flex gap-x-3">
-              <Column text="Todo" column="todo" />
+              <Column text="Todo" column="Todo" cards={cards} setCards={setCards}/>
 
-              <Column text="In progress" column="inprogress" />
-              <Column text="Review" column="review" />
-              <Column text="Complete" column="complete" />
-              <Column text="Delete" column="delete" />
+              <Column text="In progress" column="In Progress" cards={cards} setCards={setCards}/>
+              <Column text="Review" column="Review" cards={cards} setCards={setCards}/>
+              <Column text="Complete" column="Complete" cards={cards} setCards={setCards}/>
+              <BurnBarrel setCards={setCards}/>
+              {/* <Column text="Delete" column="delete" /> */}
             </div>
           </div>
         </div>

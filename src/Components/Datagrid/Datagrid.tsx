@@ -15,11 +15,17 @@ const CustomPill = (props: CustomCellRendererProps) => {
   let style: String = "";
 
   switch (props.value) {
+    case "Todo":
+      style = "cyan";
+     break;
     case "Complete":
       style = "green";
       break;
-    case "Ongoing":
+    case "In Progress":
       style = "yellow";
+      break;
+    case "Review":
+        style = "violet";
       break;
     case "Overdue":
       style = "red";

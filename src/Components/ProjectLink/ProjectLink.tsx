@@ -13,8 +13,6 @@ const ProjectLink = ({children, name,setShowProjects }: Props) => {
     console.log("first")
   }
 
-
-  console.log("hello");
   return (
     <div>
 
